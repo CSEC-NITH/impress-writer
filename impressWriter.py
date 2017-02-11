@@ -4,16 +4,16 @@
   Copyright (c) 2017 Navanshu Agarwal
 '''
 
-import gi
+import gi,locale
 gi.require_version('Gtk', '3.0')
 from gi.repository import Gtk,Pango,Gdk
+from gtkspellcheck import SpellChecker
 
 from thesScript import *
 from dictScript import *
 from stringProcessing import *
 from localData import *
 from dataManager import *
-from spellCheck import *
 
 class SearchDialog(Gtk.Dialog):
 
@@ -242,8 +242,11 @@ class ProgramWindow(Gtk.Window):
         self.text_grid.attach(scrolledwindow, 0, 1, 3, 1)
         
         self.textview = Gtk.TextView()
+
+        spellchecker = SpellChecker(self.textview,locale.getdefaultlocale()[0])
+        
         self.textbuffer = self.textview.get_buffer()
-        self.textbuffer.set_text("TextViewer: Insert Text Here")
+        
         scrolledwindow.add(self.textview)
         
         self.tag_bold = self.textbuffer.create_tag("bold",
@@ -361,28 +364,7 @@ class ProgramWindow(Gtk.Window):
 
         self.scrolled.add(self.flowbox)
         self.add(self.scrolled)
-        self.vbox_left2.pack_start(self.scrolled,True,True,0)
-                                
-        ########Implementing Spell Check#############
-        self.hbox_inner=Gtk.Box(orientation=Gtk.Orientation.HORIZONTAL,spacing=1)
-        self.hbox_inner.set_homogeneous(False)
-        label_display=Gtk.Label()
-        label_display.set_markup("<b>Spell Check:  </b>")
-        
-        self.label_spellcheck=Gtk.Label()
-        self.label_spellcheck.set_justify(Gtk.Justification.RIGHT)
-        
-        self.button_substitute=Gtk.Button(label="Substitute")
-        self.vbox_right1.pack_start(self.hbox_inner,False,True,2)
-        
-
-        self.hbox_inner.pack_end(self.button_substitute,False,True,8) 
-        self.hbox_inner.pack_start(label_display,False,True,0)
-        self.hbox_inner.pack_start(self.label_spellcheck,True,False,0)
-       
-        
-        
-        
+        self.vbox_left2.pack_start(self.scrolled,True,True,0)                           
 
 #########signal callback functions######################
     def on_key_release(self,widget,ev,data=None):
@@ -395,7 +377,6 @@ class ProgramWindow(Gtk.Window):
             word_to_fetch=get_last_word(self.textbuffer.get_text(start,end,False))
             #print(word_to_fetch)
             #word_to_fetch="dog"
-            self.label_spellcheck.set_label(correction(word_to_fetch.lower()))
             self.synonyms=data_manager_get_synonyms(word_to_fetch)
             #print(synonyms)
             if self.synonyms != None:
