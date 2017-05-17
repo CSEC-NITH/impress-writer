@@ -1,6 +1,7 @@
 #Impress Writer
 
 Objective:
+
 Impress Writer is an application engineered with the aim of helping
 
 its user to enhance their literary creations and embellish them with
