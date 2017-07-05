@@ -44,31 +44,31 @@ python3 impressWriter.py
 
 ## DevGuide:
 
-dataManager.py:
+### dataManager.py:
 
 	contains function to manage localData and networkData.
 
-dictScript.py:
+### dictScript.py:
 
 	script to fetch meaning of a word from dictionary.com.
 
-impressWriter.py:
+### impressWriter.py:
 
 	this is the main file which contains all the UI and
 
 	events associated with the application.
 
-localData.py:
+### localData.py:
 
 	contains functions to manipulate,retrive localData
 
-stringProcessing.py:
+### stringProcessing.py:
 
 	contains functions to manipulate,process strings
 
 	fetched from the internet
 
-thesScript.py:
+### thesScript.py:
 
 	script to fetch meaning of a word from thesaurus.com
 
