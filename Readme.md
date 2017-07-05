@@ -1,10 +1,10 @@
-#Impress Writer
+# Impress Writer
 
 
-![Screenshot](./ScreenshotNew.png)
+![## Screenshot](./ScreenshotNew.png)
 
 
-Objective:
+## Objective:
 
 Impress Writer is an application engineered with the aim of helping
 
@@ -22,7 +22,7 @@ the Beautiful Soup and GTK Libraries of Python for web scraping and the
 
 implementation of the GUI
 
-Authors:
+## Authors:
 
 Kartikeya Sharma
 
@@ -32,7 +32,7 @@ Navanshu Agarwal
 
 Radhika Sood
 
-How to Run:
+## How to Run:
 
 first install bs4,requests,pygtkspellcheck using pip
 
@@ -42,7 +42,7 @@ then in terminal write the following command and press enter
 
 python3 impressWriter.py
 
-DevGuide:
+## DevGuide:
 
 dataManager.py:
 
