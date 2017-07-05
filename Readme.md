@@ -1,7 +1,7 @@
 #Impress Writer
 
 
-![Screenshot](./Screenshot&nbspnew.png)
+![Screenshot](./ScreenshotNew.png)
 
 
 Objective:
